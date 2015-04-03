@@ -30,6 +30,10 @@ vagrant up
 #### Connecting to the VM:
 ```
 vagrant ssh
+```
+
+#### On the VM
+```
 cd /vagrant
 sudo su
 apt-get update
