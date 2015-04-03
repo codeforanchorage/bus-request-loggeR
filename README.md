@@ -34,19 +34,32 @@ cd /vagrant
 sudo su
 apt-get update
 apt-get install r-base-dev
+apt-get -y build-dep libcurl4-gnutls-dev
+apt-get -y install libcurl4-gnutls-dev
+apt-get install libcurl4-openssl-dev libxml2-dev
+apt-get install gdebi-core
+wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
+gdebi shiny-server-1.3.0.403-amd64.deb
 ```
 
 #### Go into the R shell
 ```
 R # this takes you to the R shell
 install.packages("jsonlite") # Wait for CRAN mirror options to load, 101 is US Washington
-install.packages("RCurl")
 install.packages("devtools")
+require(devtools)
+install_github('ramnathv/rCharts')
+install_github('jcheng5/leaflet-shiny')
+install_github('trestletech/ShinyDash')
+install.packages("lubridate")
 
+# These next two packages do not install
+install.packages("stringer")
 
 install.packages("leaflet")
 
 ```
+#### The Error
 
 This has an error of 
 package ‘leaflet’ is not available (for R version 3.0.2)

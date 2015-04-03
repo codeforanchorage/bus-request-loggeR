@@ -21,4 +21,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.ssh.forward_agent = true
 
+  config.vm.provision "shell", inline: "sudo apt-get update"
+
 end
