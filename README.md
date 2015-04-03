@@ -37,13 +37,15 @@ vagrant ssh
 cd /vagrant
 sudo su
 apt-get update
-apt-get install r-base-dev
+apt-get -y install r-base-dev
 apt-get -y build-dep libcurl4-gnutls-dev
 apt-get -y install libcurl4-gnutls-dev
-apt-get install libcurl4-openssl-dev libxml2-dev
-apt-get install gdebi-core
+apt-get -y install libcurl4-openssl-dev libxml2-dev
+apt-get -y install gdebi-core
+cd 
 wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
 gdebi shiny-server-1.3.0.403-amd64.deb
+cd /vagrant
 ```
 
 #### Go into the R shell
@@ -56,17 +58,31 @@ install_github('ramnathv/rCharts')
 install_github('jcheng5/leaflet-shiny')
 install_github('trestletech/ShinyDash')
 install.packages("lubridate")
-
-# These next two packages do not install
-install.packages("stringer")
-
-install.packages("leaflet")
+install_github('rstudio/leaflet')
+install.packages("stringr")
 
 ```
-#### The Error
 
-This has an error of 
-package ‘leaflet’ is not available (for R version 3.0.2)
+#### The error
+```
+> json_data <- fromJSON(url)$requests
+Error: could not find function "fromJSON"
+```
+
+#### Notes
+
+install_github('hadley/httr')
+
+We still need fromJSON, 
+
+install_github('ropensci/rbison')
+
+
+install_github('hadley/lazyeval')
+ERROR: this R is version 3.0.2, package 'lazyeval' requires R >= 3.1.0
+going to R 3.1.2 fixed it
+
+install.packages("dplyr") -> need lazyeval
 
 
 
