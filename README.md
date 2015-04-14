@@ -44,12 +44,12 @@ mv R-3.1.2.tar.gz R_HOME/
 cd R_HOME/
 tar zxvf R-3.1.2.tar.gz
 cd R-3.1.2/
-sudo apt-get install gfortran libreadline6-dev libx11-dev libxt-dev
-apt-get install build-essential
-apt-get install openjdk-6-jdk
+apt-get -y install gfortran libreadline6-dev libx11-dev libxt-dev
+apt-get -y install build-essential
+apt-get -y install openjdk-6-jdk
 ./configure
 make
-sudo make install
+make install
 
 
 apt-get -y build-dep libcurl4-gnutls-dev
