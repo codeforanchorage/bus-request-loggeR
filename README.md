@@ -34,15 +34,28 @@ vagrant ssh
 
 #### On the VM
 ```
-cd /vagrant
 sudo su
 apt-get update
-apt-get -y install r-base-dev
+
+cd /root
+mkdir R_HOME
+mv R-3.1.2.tar.gz R_HOME/
+cd R_HOME/
+tar zxvf R-3.1.2.tar.gz
+cd R-3.1.2/
+sudo apt-get install gfortran libreadline6-dev libx11-dev libxt-dev
+apt-get install build-essential
+apt-get install openjdk-6-jdk
+./configure
+make
+sudo make install
+
+
 apt-get -y build-dep libcurl4-gnutls-dev
 apt-get -y install libcurl4-gnutls-dev
 apt-get -y install libcurl4-openssl-dev libxml2-dev
 apt-get -y install gdebi-core
-cd 
+
 wget http://download3.rstudio.org/ubuntu-12.04/x86_64/shiny-server-1.3.0.403-amd64.deb
 gdebi shiny-server-1.3.0.403-amd64.deb
 cd /vagrant
