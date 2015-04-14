@@ -38,6 +38,7 @@ sudo su
 apt-get update
 
 cd /root
+wget http://cran.rstudio.com/src/base/R-3/R-3.1.2.tar.gz
 mkdir R_HOME
 mv R-3.1.2.tar.gz R_HOME/
 cd R_HOME/
